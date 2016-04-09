@@ -1,7 +1,7 @@
 # Enums Exercises
 
-This is a clone of the repository 
-Clone this repository:https://github.com/turingschool/enums-exercises.git
+This is a clone of the repository:
+https://github.com/turingschool/enums-exercises.git
 
 
 _Enums Homework Part 1_
