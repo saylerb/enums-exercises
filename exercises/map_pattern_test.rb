@@ -18,6 +18,7 @@ class MapPatternTest < Minitest::Test
     doubles = []
     numbers.each do |number|
       # Your code goes here
+      doubles << number * 2
     end
     assert_equal [2, 4, 6, 8, 10], doubles
   end
