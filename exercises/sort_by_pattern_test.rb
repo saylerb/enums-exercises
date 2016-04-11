@@ -22,21 +22,25 @@ class SortByPatternTest < Minitest::Test
     things = ["pill", "box", "glass", "water", "sponge"]
     transformed = []
     things.each do |thing|
-      # Your code goes here
+      transformed << [thing[-1], thing]
     end
     transformed = transformed.sort
     sorted = []
     transformed.each do |sort_key, thing|
       sorted << thing
     end
+      
     assert_equal ["sponge", "pill", "water", "glass", "box"], sorted
   end
 
   def test_sort_by_distance
-    skip
     distances = ["1cm", "9cm", "30cm", "4cm", "2cm"]
     transformed = []
-    # Your code goes here
+    # Must convert to integer here to sort correctly
+    distances.each do |distance|
+      transformed << [distance.delete("cm").to_i, distance]
+    end
+
     transformed = transformed.sort
     sorted = []
     transformed.each do |sort_key, distance|
@@ -46,23 +50,53 @@ class SortByPatternTest < Minitest::Test
   end
 
   def test_sort_by_length
-    skip
     words = ["heteromorph", "ancyloceratina", "bioengineering", "mathematical", "bug"]
-    # Your code goes here
+    transformed = [] 
+    words.each do |word|
+      transformed << [word.length, word]
+    end
+
+    transformed = transformed.sort
+    sorted = []
+
+    transformed.each do |sort_key, word|
+      sorted << word
+    end
+    
     assert_equal ["bug", "heteromorph", "mathematical", "ancyloceratina", "bioengineering"], sorted
   end
 
   def test_sort_by_proximity_to_ten
-    skip
     prices = [3.02, 9.91, 17.9, 10.01, 11.0]
-    # Your code goes here
+
+    transformed = []
+    
+    prices.each do |price|
+      transformed << [(10.0 - price).abs, price]
+    end
+
+    transformed = transformed.sort
+
+    sorted = []
+    
+    transformed.each do |key, price|
+      sorted << price 
+    end
+
     assert_equal [10.01, 9.91, 11.0, 3.02, 17.9], sorted
   end
 
   def test_sort_by_number_of_cents
-    skip
     prices = [3.02, 9.91, 7.9, 10.01, 11.0]
-    # Your code goes here
+    transformed = []
+    prices.each do |price|
+      transformed << [(price % 1).round(2), price]
+    end 
+    
+    transformed = transformed.sort
+
+    sorted = transformed.map { |price_key, price| price }
+ 
     assert_equal [11.0, 10.01, 3.02, 7.9, 9.91], sorted
   end
 
