@@ -17,16 +17,25 @@ class AnyPatternTest < Minitest::Test
     numbers = [3, 1, 3, 2, 4, 9, 8]
     has_zero = false
     numbers.each do |number|
-      # Your code goes here
+      if number == 0
+        has.zero = true
+        break
+      end
+
     end
     refute has_zero
   end
 
   def test_has_at_least_one_alice
-    skip
     names = ["Bill", "Bob", "Burton", "Alice", "Brandon"]
     has_alice = false
-    # Your code goes here
+    names.each do |name|
+      if name == "Alice"
+        has_alice = true
+        break
+      end
+    end
+
     assert has_alice
   end
 
