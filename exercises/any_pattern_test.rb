@@ -40,30 +40,53 @@ class AnyPatternTest < Minitest::Test
   end
 
   def test_no_alices
-    skip
     names = ["Chuck", "Charlene", "Cory", "Chris", "Carl"]
-    # Your code goes here
+    has_alice = false
+    names.each do |name|
+      if name == "Alice"
+        has_alice = true
+        break
+      end
+    end
     refute has_alice
   end
 
   def test_has_a_multi_word_phrase
-    skip
     phrases = ["Sure!", "OK.", "I have no idea.", "Really?Whatever."]
-    # Your code goes here
+    has_multi_word_phrase = false
+
+    phrases.each do |phrase|
+      if phrase.include?(" ")
+        has_multi_word_phrase = true 
+        break
+      end
+    end
+    
     assert has_multi_word_phrase
   end
 
   def test_no_monkeys
-    skip
     animals = ["elephant", "hippo", "jaguar", "python"]
-    # Your code goes here
+    has_monkeys = false
+
+    animals.each do |animal|
+      if animal == "monkey"
+        has_monkeys = true
+        break
+      end
+    end
+
     refute has_monkeys
   end
 
   def test_no_multiples_of_five
-    skip
     numbers = [3, 1, 3, 2, 4, 9, 8]
-    # Your code goes here
+    multiples_of_5 = false
+
+    numbers.each do |number|
+      return mutliples_of_5 = true if number % 5 == 0
+    end
+
     refute multiples_of_5
   end
 
