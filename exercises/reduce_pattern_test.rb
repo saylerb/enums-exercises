@@ -17,16 +17,18 @@ class ReducePatternTest < Minitest::Test
     numbers = [28, 12, 38, 1, 91]
     difference = 0
     numbers.each do |number|
-      # Your code goes here
+      difference -= number
     end
+
     assert_equal -170, difference
   end
 
   def test_multiply_list_of_numbers
-    skip
     numbers = [2, 3, 5, 7]
     product = 1
-    # Your code goes here
+    numbers.each do |number|
+      product *= number
+    end
     assert_equal 210, product
   end
 
